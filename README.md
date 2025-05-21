@@ -10,9 +10,31 @@ To write a C Program to find area of rectangle using pointer.
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    float length, breadth, area;
+    float *ptrLength, *ptrBreadth;
+
+    ptrLength = &length;
+    ptrBreadth = &breadth;
+
+    scanf("%f", ptrLength);
+
+    scanf("%f", ptrBreadth);
+
+    area = (*ptrLength) * (*ptrBreadth);
+
+    printf("Area of rectangle = %f sq. units\n", area);
+
+    return 0;
+}
+```
 
 ## OUTPUT
 		       	
+![image](https://github.com/user-attachments/assets/14bacf7c-1327-479e-9fc2-16ab951f6b8b)
 
 
 ## RESULT
@@ -34,8 +56,27 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char *str;
+    str = (char *)malloc(8 * sizeof(char)); 
+    if (str == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    strcpy(str, "WELCOME");
+    printf("The string is: %s\n", str);
+    free(str);
+    return 0;
+}
+```
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/04936b1f-1694-4e17-b4c4-7bc6a9ff3b83)
 
 
 
@@ -60,10 +101,38 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int rollNumber;
+    float marks;
+};
+
+int main() {
+    struct Student s;
+
+    printf("Enter student name: ");
+    scanf("%s", s.name);  
+    printf("Enter roll number: ");
+    scanf("%d", &s.rollNumber);
+    printf("Enter marks: ");
+    scanf("%f", &s.marks);
+
+    printf("\n--- Student Information ---\n");
+    printf("Name       : %s\n", s.name);
+    printf("Roll Number: %d\n", s.rollNumber);
+    printf("Marks      : %.2f\n", s.marks);
+
+    return 0;
+}
+```
 
 
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/7e99032c-9d07-4f5a-b62c-cc2c68d49b0c)
 
 ## RESULT
 
@@ -87,11 +156,56 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+struct Employee {
+    char name[50];
+    int id;
+    float basicSalary;
+    float hra;
+    float da;
+    float grossSalary;
+};
+
+int main() {
+    struct Employee emp[3];
+
+    for (int i = 0; i < 3; i++) {
+        printf("\nEnter details for Employee %d:\n", i + 1);
+        printf("Name: ");
+        scanf("%s", emp[i].name);  
+        printf("ID: ");
+        scanf("%d", &emp[i].id);
+        printf("Basic Salary: ");
+        scanf("%f", &emp[i].basicSalary);
+
+        emp[i].hra = 0.20 * emp[i].basicSalary;
+        emp[i].da = 0.80 * emp[i].basicSalary;
+        emp[i].grossSalary = emp[i].basicSalary + emp[i].hra + emp[i].da;
+    }
+
+    printf("\n--- Employee Salary Details ---\n");
+    for (int i = 0; i < 3; i++) {
+        printf("\nEmployee %d:\n", i + 1);
+        printf("Name        : %s\n", emp[i].name);
+        printf("ID          : %d\n", emp[i].id);
+        printf("Basic Salary: %.2f\n", emp[i].basicSalary);
+        printf("HRA         : %.2f\n", emp[i].hra);
+        printf("DA          : %.2f\n", emp[i].da);
+        printf("Gross Salary: %.2f\n", emp[i].grossSalary);
+    }
+
+    return 0;  
+}
+```
 
 
  ## OUTPUT
 
  
+![image](https://github.com/user-attachments/assets/331fd88c-518a-4a52-90a9-50370a52fa1f)
+
 
 ## RESULT
 
@@ -134,11 +248,57 @@ Step 7: Output Loop (i = 0 to 1):
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+struct student {
+    char name[20];       
+    int rollno;          
+    int subject[5];     
+    int total;           
+};
+
+int main() {
+    struct student s[2];
+    int i, j;
+
+    for (i = 0; i < 2; i++) {
+        printf("Enter name of student %d: ", i + 1);
+        scanf("%s", s[i].name);
+
+        printf("Enter roll number of %s: ", s[i].name);
+        scanf("%d", &s[i].rollno);
+
+        printf("Enter marks for 5 subjects of %s:\n", s[i].name);
+        for (j = 0; j < 5; j++) {
+            printf("Subject %d: ", j + 1);
+            scanf("%d", &s[i].subject[j]);
+        }
+    }
+
+    for (i = 0; i < 2; i++) {
+        s[i].total = 0;
+        for (j = 0; j < 5; j++) {
+            s[i].total += s[i].subject[j];
+        }
+    }
+
+    for (i = 0; i < 2; i++) {
+        float average = s[i].total / 5.0;
+        printf("\nStudent Name: %s", s[i].name);
+        printf("\nRoll Number: %d", s[i].rollno);
+        printf("\nTotal Marks: %d", s[i].total);
+        printf("\nAverage Marks: %.2f\n", average);
+    }
+
+    return 0;
+}
+```
 
 ## OUTPUT
 
- 
+![image](https://github.com/user-attachments/assets/60a76941-6eb2-4345-a0b8-60ab7186dd42)
+
 
 ## RESULT
 
