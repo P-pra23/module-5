@@ -203,8 +203,8 @@ int main() {
 
  ## OUTPUT
 
- 
-![image](https://github.com/user-attachments/assets/331fd88c-518a-4a52-90a9-50370a52fa1f)
+ ![image](https://github.com/user-attachments/assets/0b5da25a-e68f-4912-89d3-3de26c1900e4)
+
 
 
 ## RESULT
@@ -297,7 +297,7 @@ int main() {
 
 ## OUTPUT
 
-![image](https://github.com/user-attachments/assets/60a76941-6eb2-4345-a0b8-60ab7186dd42)
+![image](https://github.com/user-attachments/assets/a7bcde2d-8417-4913-a93e-6f1e0fcac96a)
 
 
 ## RESULT
